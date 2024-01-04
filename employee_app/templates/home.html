@@ -1,0 +1,74 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SARASS TEXTILES</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            background-image: url("{% static 'image/f.jpg' %}");
+            background-size: cover;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+        }
+
+        .menu-bar {
+            background-color: #000;
+            overflow: hidden;
+        }
+
+        .menu-bar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .menu-bar a:hover {
+            background-color: orange;
+            border-radius: 15px;
+            transition: 0.8s;
+        }
+
+        .menu-bar a.active {
+            background-color: orange;
+            border-radius: 15px;
+        }
+
+        .main {
+            text-align: center;
+            padding: 100px;
+            color: wheat;
+            font-size: 3em;
+        }
+
+        h1 {
+            font-style: italic;
+            font-weight: 700;
+            text-align: center;
+            text-decoration-color: rgb(68, 68, 241);
+            text-shadow: 2px 2px 2px rgb(94, 19, 66);
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-bar">
+        <a href="#" class="active">Home</a>
+        <a href="#">Register</a>
+        <a href="login1">Login</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <div class="main">
+        <h1 style="background-color: #000; color: wheat;">EMPLOYEE MANAGEMENT SYSTEM : FORTUNE</h1>
+    </div>
+
+    <div class="footer"></div>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+        body {
+            background-image: url('https://example.com/your-background-image.jpg'); /* Replace with your actual image URL */
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+        }
+
+        h1 {
+            color: white;
+            background-color: #343a40;
+            padding: 75px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            background: linear-gradient(to right, #343a40, #6c757d);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: #fff;
+        }
+
+        .navbar-dark .navbar-toggler-icon {
+            background-color: #fff;
+        }
+
+        .card {
+            margin-top: 20px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background: linear-gradient(to right, #343a40, #6c757d);
+            color: #fff;
+            border-bottom: none;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .table {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .table th,
+        .table td {
+            border: none;
+            color: #fff;
+        }
+
+        .table thead th {
+            background: linear-gradient(to right, #343a40, #6c757d);
+        }
+
+        .updates-section,
+        .events-section {
+            margin-top: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color:red;
+        }
+
+        /* Add more custom styles as needed */
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index">Office Management System</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/all_emp">View All Employees</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/add_emp">Add Employee</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/remove_emp">Remove Employee</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/filter_emp">Filter Employee Details</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="user_logout">Log Out</a>
+                  </li>
+                    <!-- Add other navigation items as needed -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Welcome to Office Employee Management System</h1>
+
+        <div class="card">
+            <div class="card-header">
+                Employee Details
+            </div>
+            <div class="card-body">
+                <table class="table table-dark table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Salary</th>
+                            <th scope="col">Bonus</th>
+                            <th scope="col">Phone Number</th>
+                            <th scope="col">Role</th>
+                            <th scope="col">Department</th>
+                            <th scope="col">Location</th>
+                            <th scope="col">Hire Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for emp in emps %}
+                        <tr>
+                            <th scope="row">{{emp.id}}</th>
+                            <td>{{emp.first_name}}</td>
+                            <td>{{emp.last_name}}</td>
+                            <td>{{emp.salary}}</td>
+                            <td>{{emp.Bonus}}</td>
+                            <td>{{emp.phone}}</td>
+                            <td>{{emp.Role.name}}</td>
+                            <td>{{emp.dept.name}}</td>
+                            <td>{{emp.dept.location}}</td>
+                            <td>{{emp.hire_date}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="updates-section">
+            <h2>Recent Updates</h2>
+            <p>Stay informed about the latest news and updates regarding the Office Management System.</p>
+            <!-- Add dynamic content or updates here -->
+        </div>
+
+        <div class="events-section">
+            <h2>Upcoming Events</h2>
+            <p>Check out the upcoming events and important dates in the Office Management System.</p>
+            <!-- Add dynamic content or events here -->
+        </div>
+
+    </div>
+
+    <!-- Bootstrap JS and other scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<head>
+  <style>
+    
+
+body{
+   
+   font-family: sans-serif;
+   background-image: url(../dress.jpg);
+   background-repeat: no-repeat;
+   overflow: hidden;
+   background-size: cover;
+}
+
+
+
+
+.container{
+   width: 380px;
+   margin: auto;
+   border-radius: 25px;
+   background-color: rgba(0, 0, 0, 0.1);
+}
+.header{
+   text-align: center;
+   padding-top: 75px;
+}
+.header h1{
+   color: rgb(14, 11, 11);
+   font-size: 45px;
+   margin-bottom: 80px;
+   text-shadow: 2px 2px 5px red;
+
+}
+.main{
+   text-align: center;
+}
+
+.main button, input{
+   width: 300px;
+   height: 40px;
+   border: none;
+   outline: none;
+   padding-left: 40px;
+   box-sizing: border-box;
+   font-size: 15px;
+   color: #333;
+   margin-bottom: 40px;
+
+}
+
+.main button{
+   padding-left: 0;
+   color: rgb(2, 0, 8);
+   background-color: rgb(74, 165, 162);
+   letter-spacing: 1px;
+   font-weight: bold;
+}
+
+.main button:hover, input:hover{
+   box-shadow: 2px 2px 5px #555;
+   background-color: rgb(123, 202, 198);
+}
+
+.main span{
+
+   position: relative;
+
+}
+
+.main i{
+   position: absolute;
+   left:15px;
+   color: #333;
+   font-size: 15px;
+   top: 2px;
+}
+  </style>
+    <title>login</title>
+    <link rel="stylesheet" type="text/css" href="css/log.css">
+    <link rel="stylesheet" type="text/css" href="fontawesome/css/all.min.css">
+
+</head>
+<body style="background-image: url(/static/image/ergonomi_0755_131120_mgg-1.jpg);">
+  <div class="container">
+    <div class="header">
+      <h1>Login</h1>
+      </div>
+      <div class="main">
+        <span>
+          <i class="fa fa-user"></i>
+        <form action="admin_login" method="POST">
+         {% csrf_token %}
+         <input type="text" placeholder="Name" name="username">
+        </span><br>
+        <span>
+             <i class="fa fa-lock"></i>
+          <input type="password" placeholder="password" name="password">
+        </span><br>
+        <input type="submit" value="submit">
+        
+      </form>
+      </div>
+  </div>
+    
+</body>
+</html>
